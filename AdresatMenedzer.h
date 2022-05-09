@@ -1,5 +1,5 @@
-#ifndef UZYTKOWNIKMENEDZER_H
-#define UZYTKOWNIKMENEDZER_H
+#ifndef ADRESATMENEDZER_H
+#define ADRESATMENEDZER_H
 
 #include <iostream>
 #include <vector>
@@ -7,19 +7,19 @@
 #include <fstream>
 #include <sstream>
 
-#include "Uzytkownik.h"
-#include "PlikZUzytkownikami.h"
-#include "MetodyPomocnicze.h"
+#include "Adresat.h"
+#include "PlikZAdresatami.h"
 
 using namespace std;
 
-class UzytkownikMenedzer
+class AdresatMenedzer
  {
-    int idZalogowanegoUzytkownika;
+    int idOstatniegoAdresata;
+    int idUsunietegoAdresata;
 
-    vector <Uzytkownik> uzytkownicy;
+    vector <Adresat> adresaci;
 
-    Uzytkownik podajDaneNowegoUzytkownika();
+    /*Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     PlikZUzytkownikami plikZUzytkownikami;
     bool czyIstniejeLogin(string login);
@@ -29,7 +29,7 @@ public:
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
+    void wczytajUzytkownikowZPliku();*/
 
  };
 #endif
