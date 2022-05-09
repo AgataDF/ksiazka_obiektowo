@@ -15,6 +15,6 @@ class MetodyPomocnicze
  {
 public:
     static string konwerjsaIntNaString(int liczba);
-
+    static string wczytajLinie();
  };
 #endif
