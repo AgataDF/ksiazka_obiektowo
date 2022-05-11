@@ -11,6 +11,12 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
     system("pause");
 }
 
+void UzytkownikMenedzer::zmianaIdZalogowanegoUzytkownika()
+{
+    idZalogowanegoUzytkownika = logowanieUzytkownika();
+
+}
+
 Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
 {
     Uzytkownik uzytkownik;
@@ -74,8 +80,8 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
-    login = MetodyPomocnicze::wczytajLinie();
-
+   // login = wczytajLinie();
+    cin >> login;
     for (int i = 0; i < uzytkownicy.size(); i++)
     {
         if (uzytkownicy[i].pobierzLogin() == login)
@@ -83,7 +89,8 @@ int UzytkownikMenedzer::logowanieUzytkownika()
             for (int iloscProb = 3; iloscProb > 0; iloscProb--)
             {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
-                haslo = MetodyPomocnicze::wczytajLinie();
+                //haslo = wczytajLinie();
+                cin >> haslo;
 
                 if (uzytkownicy[i].pobierzHaslo() == haslo)
                 {
@@ -106,7 +113,8 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
 {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
-    noweHaslo = MetodyPomocnicze::wczytajLinie();
+    //noweHaslo = wczytajLinie();
+    cin >> noweHaslo;
 
    for (int i = 0; i < uzytkownicy.size(); i++)
     {
@@ -117,6 +125,6 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
             system("pause");
         }
     }
-    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy); //to nie dziala poprawnie
 }
 

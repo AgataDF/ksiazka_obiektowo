@@ -105,8 +105,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
 {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
-    Uzytkownik uzytkownik;
-    int liniaKoniec = uzytkownicy.size();
+    int liniaKoniec = uzytkownicy.size()-1;
 
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
 
@@ -114,7 +113,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
     {
          for (int i = 0; i < uzytkownicy.size(); i++)
         {
-            liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
+            liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownicy[i]);
 
             if (i == liniaKoniec)
             {
@@ -126,7 +125,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
             }
             liniaZDanymiUzytkownika = "";
         }
-        }
+    }
     else
     {
         cout << "Nie mozna otworzyc pliku " << nazwaPlikuZUzytkownikami << endl;
