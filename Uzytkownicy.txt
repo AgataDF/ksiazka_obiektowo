@@ -1,9 +1,4 @@
-1|damian|123|
-2|wiktor|456|
-3|kamila|222|
-4|ddd|44|
-6|fela|123|
-7|kamil|123|
-8|kaja|123|
-9|agata|123|
-10|rita|123|
+1|damian|456|
+2|wiktor|789|
+3|kamila|89754|
+4|ddd|5428|
