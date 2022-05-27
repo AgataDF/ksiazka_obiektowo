@@ -1,33 +1,37 @@
-/*#ifndef PLIKZUZYTKOWNIKAMI_H
-#define PLIKZUZYTKOWNIKAMI_H
+#ifndef PLIKZADRESATAMI_H
+#define PLIKZADRESATAMI_H
 
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <cstdlib>
 
-#include "Uzytkownik.h"
+#include "Adresat.h"
+#include "UzytkownikMenedzer.h"
 #include "MetodyPomocnicze.h"
 
 using namespace std;
 
-class PlikZUzytkownikami
+class PlikZAdresatami
  {
-    const string nazwaPlikuZUzytkownikami;
-
+    string nazwaPlikuZAdresatami = "Adresaci.txt";
+    string nazwaTymczasowegoPlikuZAdresatami = "Adresaci_tymczasowy.txt";
 
     bool czyPlikJestPusty(fstream &plikTekstowy);
-    string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
-    Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
+    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami (Adresat adresat);
+    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
+    string pobierzLiczbe(string tekst, int pozycjaZnaku);
 
 
 public:
-    PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI):nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};
-    void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
-    vector <Uzytkownik> wczytajUzytkownikowZPliku();
+   // PlikZAdresatami(string NAZWAPLIKUZADRESATAMI):nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI){};
+    void dopiszAdresataDoPliku(Adresat adresat);
+    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika);
+
 
 
  };
 
 #endif
-*/

@@ -1,4 +1,8 @@
 #include "UzytkownikMenedzer.h"
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
+}
 
 void UzytkownikMenedzer::rejestracjaUzytkownika()
 {
@@ -14,7 +18,6 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
 void UzytkownikMenedzer::zmianaIdZalogowanegoUzytkownika()
 {
     idZalogowanegoUzytkownika = logowanieUzytkownika();
-
 }
 
 Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
@@ -80,8 +83,7 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     string login = "", haslo = "";
 
     cout << endl << "Podaj login: ";
-   // login = wczytajLinie();
-    cin >> login;
+    login = MetodyPomocnicze::wczytajLinie();
     for (int i = 0; i < uzytkownicy.size(); i++)
     {
         if (uzytkownicy[i].pobierzLogin() == login)
@@ -89,8 +91,7 @@ int UzytkownikMenedzer::logowanieUzytkownika()
             for (int iloscProb = 3; iloscProb > 0; iloscProb--)
             {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
-                //haslo = wczytajLinie();
-                cin >> haslo;
+                haslo = MetodyPomocnicze::wczytajLinie();
 
                 if (uzytkownicy[i].pobierzHaslo() == haslo)
                 {
@@ -113,8 +114,7 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
 {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
-    //noweHaslo = wczytajLinie();
-    cin >> noweHaslo;
+    noweHaslo = MetodyPomocnicze::wczytajLinie();
 
    for (int i = 0; i < uzytkownicy.size(); i++)
     {
@@ -125,6 +125,6 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
             system("pause");
         }
     }
-    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy); //to nie dziala poprawnie
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 

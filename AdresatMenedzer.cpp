@@ -1,70 +1,48 @@
 #include "AdresatMenedzer.h"
-/*
-void UzytkownikMenedzer::rejestracjaUzytkownika()
+
+int AdresatMenedzer::dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
 {
-    Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
+    Adresat adresat;
 
-    uzytkownicy.push_back(uzytkownik);
-    plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    system("cls");
+    cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
+    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
 
-    cout << endl << "Konto zalozono pomyslnie" << endl << endl;
-    system("pause");
+    adresaci.push_back(adresat);
+    plikZAdresatami.dopiszAdresataDoPliku(adresat);
+
+    return ++idOstatniegoAdresata;
 }
 
-Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
+
+Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
 {
-    Uzytkownik uzytkownik;
+    Adresat adresat;
 
-    uzytkownik.ustawId(pobierzIdNowegoUzytkownika());
+    adresat.ustawId(++idOstatniegoAdresata);
+    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
 
-    string login;
-    do
-    {
-        cout << "Podaj login: ";
-        cin >> login;
-        uzytkownik.ustawLogin(login);
-    }
-    while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
-    string haslo;
-    cout << "Podaj haslo: ";
-    cin >> haslo;
-    uzytkownik.ustawHaslo(haslo);
+    cout << "Podaj imie: ";
+    string imie = MetodyPomocnicze::wczytajLinie();
+    adresat.ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie));
 
-    return uzytkownik;
-}
-int UzytkownikMenedzer::pobierzIdNowegoUzytkownika()
-{
-    if (uzytkownicy.empty() == true)
-        return 1;
-    else
-        return uzytkownicy.back().pobierzId() + 1;
-}
+    cout << "Podaj nazwisko: ";
+    string nazwisko = MetodyPomocnicze::wczytajLinie();
+    adresat.ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko));
 
-bool UzytkownikMenedzer::czyIstniejeLogin(string login)
-{
-    for (int i = 0; i < uzytkownicy.size(); i++)
-    {
-        if (uzytkownicy[i].pobierzLogin() == login)
-        {
-            cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
-            return true;
-        }
-    }
-    return false;
+    cout << "Podaj numer telefonu: ";
+    adresat.ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
+
+    cout << "Podaj email: ";
+    adresat.ustawEmail(MetodyPomocnicze::wczytajLinie());
+
+    cout << "Podaj adres: ";
+    adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
+
+    return adresat;
 }
 
-void UzytkownikMenedzer::wypiszWszystkichUzytkownikow()
+int AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
 {
-    for (int i = 0; i < uzytkownicy.size(); i++)
-    {
-        cout << uzytkownicy[i].pobierzId() << endl;
-        cout << uzytkownicy[i].pobierzLogin() << endl;
-        cout << uzytkownicy[i].pobierzHaslo() << endl;
-    }
+    plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
 }
-
-void UzytkownikMenedzer::wczytajUzytkownikowZPliku()
-{
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
-}
-*/
