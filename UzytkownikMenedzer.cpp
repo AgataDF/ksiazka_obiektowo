@@ -1,8 +1,4 @@
 #include "UzytkownikMenedzer.h"
-int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
-{
-    return idZalogowanegoUzytkownika;
-}
 
 void UzytkownikMenedzer::rejestracjaUzytkownika()
 {
@@ -13,11 +9,6 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
-}
-
-void UzytkownikMenedzer::zmianaIdZalogowanegoUzytkownika()
-{
-    idZalogowanegoUzytkownika = logowanieUzytkownika();
 }
 
 Uzytkownik UzytkownikMenedzer::podajDaneNowegoUzytkownika()
@@ -114,7 +105,8 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
 {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
-    noweHaslo = MetodyPomocnicze::wczytajLinie();
+    //noweHaslo = MetodyPomocnicze::wczytajLinie();
+    cin >> noweHaslo;
 
    for (int i = 0; i < uzytkownicy.size(); i++)
     {

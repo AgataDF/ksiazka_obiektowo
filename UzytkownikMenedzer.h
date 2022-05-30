@@ -24,8 +24,7 @@ class UzytkownikMenedzer
     bool czyIstniejeLogin(string login);
 
 public:
-    int pobierzIdZalogowanegoUzytkownika();
-    void zmianaIdZalogowanegoUzytkownika();
+
     UzytkownikMenedzer(string nazwaPlikuZUzytkownikami):plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
