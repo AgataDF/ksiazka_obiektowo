@@ -9,28 +9,29 @@
 
 #include "Adresat.h"
 #include "PlikZAdresatami.h"
+#include "UzytkownikMenedzer.h"
 
 using namespace std;
 
 class AdresatMenedzer
  {
-    int idOstatniegoAdresata;
+
     int idUsunietegoAdresata;
 
     vector <Adresat> adresaci;
 
-    /*Uzytkownik podajDaneNowegoUzytkownika();
-    int pobierzIdNowegoUzytkownika();
-    PlikZUzytkownikami plikZUzytkownikami;
-    bool czyIstniejeLogin(string login);
+    PlikZAdresatami plikZAdresatami;
+    void wyswietlDaneAdresata(int i);
 
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami):plikZUzytkownikami(nazwaPlikuZUzytkownikami){};
-    void rejestracjaUzytkownika();
-    int logowanieUzytkownika();
-    void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();*/
-
+int idOstatniegoAdresata;
+    AdresatMenedzer();
+    int dodajAdresata(int idZalogowanegoUzytkownika);
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
+    //AdresatMenedzer(string nazwaPlikuZAdresatami):plikZAdresatami(nazwaPlikuZAdresatami){};
+    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void wyswietlWszystkichAdresatow();
+    void wyczyscWektor();
  };
 #endif
 

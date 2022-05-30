@@ -1,4 +1,0 @@
-1|damian|456|
-2|wiktor|789|
-3|kamila|89754|
-4|ddd|5428|

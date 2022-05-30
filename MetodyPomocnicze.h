@@ -6,8 +6,10 @@
 #include <windows.h>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 #include "Uzytkownik.h"
+#include "Adresat.h"
 
 using namespace std;
 
@@ -15,6 +17,11 @@ class MetodyPomocnicze
  {
 public:
     static string konwerjsaIntNaString(int liczba);
-    static string wczytajLinie(); //problem z funkcja, pobiera pusta wartosc i nie mozna nic wpisaæ
+    static string wczytajLinie();
+    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    static int konwersjaStringNaInt(string liczba);
+    static char wczytajZnak();
+
+
  };
 #endif
