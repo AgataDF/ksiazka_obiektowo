@@ -16,23 +16,22 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
     idZalogowanegoUzytkownika = uzytkownikMenedzer.logowanieUzytkownika();
+    if (idZalogowanegoUzytkownika>0)
+        adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+    cout << idZalogowanegoUzytkownika << endl;
+    Sleep(1000);
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+    cout << idZalogowanegoUzytkownika << endl;
+    Sleep(1000);
 }
 
 void KsiazkaAdresowa::dodajAdresata()
 {
-    cout << adresatMenedzer.idOstatniegoAdresata << " " << idZalogowanegoUzytkownika << endl;
-    Sleep(1000);
     adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
-}
-
-void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
-{
-    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 }
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()

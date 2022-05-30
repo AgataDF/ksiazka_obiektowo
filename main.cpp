@@ -29,7 +29,7 @@ int main()
                 break;
             case '2':
                 ksiazkaAdresowa.logowanieUzytkownika();
-                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+                //ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
                 break;
             case '9':
                 exit(0);

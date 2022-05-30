@@ -55,6 +55,8 @@ bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy)
 
 int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika)
 {
+     cout << idZalogowanegoUzytkownika << endl;
+    Sleep(1000);
     Adresat adresat;
     int idOstatniegoAdresata = 0;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";

@@ -26,7 +26,6 @@ public:
     void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void dodajAdresata();
-    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void wypiszWszystkichAdresatowZalogowanegoUzytkownika();
     void wylogowanie();
 

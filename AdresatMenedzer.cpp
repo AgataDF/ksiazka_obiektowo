@@ -48,13 +48,13 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
 
 int AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
 {
+     cout << idZalogowanegoUzytkownika << endl;
+    Sleep(1000);
     plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
 }
 
 void AdresatMenedzer::wyswietlWszystkichAdresatow()
 {
-
-
     system("cls");
     if (!adresaci.empty())
     {
@@ -64,12 +64,6 @@ void AdresatMenedzer::wyswietlWszystkichAdresatow()
         for (int i = 0; i < adresaci.size(); i++)
         {
             wyswietlDaneAdresata(i);
-    /*cout << endl << "Id:         " << adresaci[i].pobierzId() << endl;
-    cout << "Imie:               " << adresaci[i].pobierzImie() << endl;
-    cout << "Nazwisko:           " << adresaci[i].pobierzNazwisko() << endl;
-    cout << "Numer telefonu:     " << adresaci[i].pobierzNumerTelefonu() << endl;
-    cout << "Email:              " << adresaci[i].pobierzEmail() << endl;
-    cout << "Adres:              " << adresaci[i].pobierzAdres() << endl;*/
         }
         cout << endl;
     }
@@ -81,7 +75,7 @@ void AdresatMenedzer::wyswietlWszystkichAdresatow()
 }
 
 void AdresatMenedzer::wyswietlDaneAdresata(int i)
-{cout << adresaci.size()<<endl;
+{
     cout << endl << "Id:         " << adresaci[i].pobierzId() << endl;
     cout << "Imie:               " << adresaci[i].pobierzImie() << endl;
     cout << "Nazwisko:           " << adresaci[i].pobierzNazwisko() << endl;
@@ -93,4 +87,7 @@ void AdresatMenedzer::wyswietlDaneAdresata(int i)
 void AdresatMenedzer::wyczyscWektor()
 {
     adresaci.empty();
+    if (adresaci.size() == 0)
+        cout << "Dziala"<<endl;
+    Sleep(1000);
 }
