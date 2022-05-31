@@ -1,8 +1,6 @@
 
 #include "KsiazkaAdresowa.h"
 
-
-
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     uzytkownikMenedzer.rejestracjaUzytkownika();
@@ -15,23 +13,22 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
-    idZalogowanegoUzytkownika = uzytkownikMenedzer.logowanieUzytkownika();
-    if (idZalogowanegoUzytkownika>0)
-        adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-    cout << idZalogowanegoUzytkownika << endl;
+    uzytkownikMenedzer.logowanieUzytkownika();
+    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    cout << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika << endl;
     Sleep(1000);
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
-    cout << idZalogowanegoUzytkownika << endl;
+    cout << uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika << endl;
     Sleep(1000);
 }
 
 void KsiazkaAdresowa::dodajAdresata()
 {
-    adresatMenedzer.dodajAdresata(idZalogowanegoUzytkownika);
+    adresatMenedzer.dodajAdresata();
 }
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
@@ -81,6 +78,7 @@ void KsiazkaAdresowa::wypiszWszystkichAdresatowZalogowanegoUzytkownika()
 
  void KsiazkaAdresowa::wylogowanie()
  {
-     idZalogowanegoUzytkownika = 0;
-     adresatMenedzer.wyczyscWektor();
+     //adresatMenedzer.wyczyscWektor();
+     uzytkownikMenedzer.nadajIdZalogowanegoUzytkownika(0);
+
  }

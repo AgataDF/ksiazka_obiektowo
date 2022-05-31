@@ -1,5 +1,17 @@
 #include "UzytkownikMenedzer.h"
 
+void UzytkownikMenedzer::nadajIdZalogowanegoUzytkownika(int noweId)
+{
+    if (noweId >=0)
+    idZalogowanegoUzytkownika = noweId;
+
+}
+
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
+}
+
 void UzytkownikMenedzer::rejestracjaUzytkownika()
 {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
